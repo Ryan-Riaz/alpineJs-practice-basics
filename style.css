@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+.container {
+    width: 80%;
+    margin: 10% auto;
+    background: #81ecec;
+    padding: 5%;
+    font-family: sans-serif;
+}
+
+button {
+    padding: 8px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background: #6c5ce7;
+    color: #fff;
+}

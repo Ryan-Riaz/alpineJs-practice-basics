@@ -1,0 +1,25 @@
+Install Alpine::
+Alpine can easily be installed on any website by including the CDN link on your page, like so::
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+
+
+AlpineJS Directives
+Directives are attributes you can add to your elements to attach a specified behavior to that element. Below are the 14 directives you can use in your Alpine components to attach some behavior.
+
+        x-data - creates a new alpine component and allows you to add data to your component.
+        x-init - executes javascript code when the component is initialized—more info on this directive in the next section.
+        x-show - show or hide an element based on a true or false variable.
+        x-bind - set the value of an attribute based on a condition. example x-bind:disabled="isDisabled".
+        x-on - execute javascript based on a JS event listener. example: x-on:click="console.log('i got clicked')".
+        x-model - two-way data bind variable to element. Will keep both element and variable data in sync.
+        x-text - sets the innerText of an element equal to the variable data.
+        x-html - sets the innerHTML of an element equal to the specified variable data.
+        x-ref - This allows you to add a reference to this element to refer to it elsewhere.
+        x-if - If the condition is not met inside this directive, the element will be removed from the DOM and must be used inside a <template> tag.
+        x-for - Loops through an array of items and creates new nodes for each item in the array. Must also be used in a <template> tag.
+        x-transition - Directive for applying classes to the different stages of an element's transitions.
+        x-spread - This allows you to bind an object of an Alpine directive with an element for better re-usability.
+        x-cloak - Attribute used on an element to hide it from the DOM until the component is ready. Learn more about x-cloak from this article.
+
+Those are the directives you can use inside of your AlpineJS components. Get to know most of them, and you will be an AlpineJS ninja 🥋.

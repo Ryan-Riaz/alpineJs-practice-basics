@@ -1,0 +1,92 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Alpine Js Basic Practices</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <!-- let's write counter components first!!! -->
+            <div x-data="{count: 0}">
+                <p x-text="count"></p>
+                <button @click="count++">increment</button>
+                <button x-on:click="count--">decrement</button>
+            </div>
+
+            <!-- show text with x-text like innerText -->
+            <div x-data="{ title: 'Hello Alpine' }">
+                <p x-text="title"></p>
+                <!--  see also how click event is bound -->
+                <button @click="title='Alpine Rocks!'">click me</button>
+            </div>
+
+            <!-- show html with x-html like innerHTML -->
+            <div x-data="{ code: '<h1> Joss </h1>' }">
+                <p x-html="code"></p>
+            </div>
+
+            <!-- show/hide data with x-show  -->
+            <div class="show-data" x-data="{isShow : false}">
+                <h1 x-show="isShow">See me!</h1>
+                <button @click="isShow = !isShow">Show Heading?</button>
+            </div>
+
+            <!-- write more js with alpine js with x-init -->
+            <div
+                x-data="{ countdown: 0 }"
+                x-init="setInterval(function(){
+                countdown++;
+             }, 1000);
+             "
+            >
+                <h1 x-text="countdown"></h1>
+            </div>
+
+            <!-- work with form  -->
+            <div x-data="{ title: '' }">
+                <p x-text="title"></p>
+                <input type="text" x-model="title" />
+            </div>
+
+            <!-- reference any element -->
+            <div x-data="{ code: '<p>Dynamic Paragraph</p>' }">
+                <div x-ref="reference"><p>change me</p></div>
+                <button @click="$refs.reference.innerHTML = code">
+                    Change Sentence
+                </button>
+            </div>
+
+            <!-- condition... we must include template tag-->
+            <div x-data="{ socks: 'blue' }">
+                <template x-if="socks=='blue'">
+                    <p>My socks are blue</p>
+                </template>
+                <template x-if="socks=='green'">
+                    <p>My socks are green</p>
+                </template>
+                <button @click="socks = 'green'">Change Sox</button>
+            </div>
+
+            <!-- looping a list -->
+            <div x-data="{ groceries: ['Milk', 'Eggs', 'Cheese'] }">
+                <p>Groceries</p>
+                <ul>
+                    <template x-for="item in groceries">
+                        <li x-text="item"></li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+
+        <!-- alpine from local src  -->
+        <!-- <script src="./alpine.min.js" defer></script> -->
+
+        <!-- alpine from cdn -->
+        <script
+            src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"
+            defer
+        ></script>
+    </body>
+</html>
